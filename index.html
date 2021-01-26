@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>This is for testing...</title>
+        <link rel='stylesheet' type='text/css' href="index.css">
+        <script src="https://kit.fontawesome.com/b8afffe50a.js" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="encode" class="encode">
+            <h2 id="encoding" class="encoding">Encoding...</h2>
+            <div class="encode-key" id="encode-key">
+                <div class="key-info">
+                    <span>key: </span>
+                    <span class="encode-key-value" id="encode-key-value">none</span>
+                    <span id="key-ani" class="" title=""></span>
+                    <button class="key-gen-btn" id="key-gen-btn" onclick="generateKey()">Generate Key</button>
+                </div>
+            </div>
+            <textarea type="text" id="encode-input" class="encode-input" placeholder="Enter the information...."></textarea>
+            <button id="encode-btn" class="encode-btn" type="button" onclick="encode()">Encode</button>
+            <span id="encode-btn-ani"></span>
+            <span id="encode-output-copy" class=""></span>
+            <div class="encode-output" id="encode-output"></div> 
+        </div>
+
+        <div id="decode" class="decode" >
+            <h2 id="decoding" class="decoding">Decoding...</h2>
+            <div class="decode-key">
+                <div class="key-info">
+                    <span>key: </span>
+                    <input class="key-input" id="key-input" placeholder="XXXX-XXXX-XXXX-XXXX">
+                    <span id="decode-key-info" class="decode-key-info"></span>
+                </div>
+            </div>
+            <input type="text" id="decode-input" class="decode-input" placeholder="Enter the information...." />
+            <button id="decode-btn" class="decode-btn" type="button" onclick="decode()">decode</button>
+            <span id="decode-btn-ani"></span>
+            <div class="decode-output" id="decode-output"></div>
+        </div>
+        
+    </body>
+    <script src="index.js"></script>
+</html>

@@ -1,0 +1,137 @@
+body {
+    color: blue;
+    background-color: black;
+}
+
+.encode, .decode {
+    float: left;
+    width: 45%;
+    margin: 0.5%;
+    overflow: hidden;
+    padding: 20px 2%;
+    background-color: #333;
+    border-radius: 6px;
+    min-height: 200px;
+}
+
+.encoding , .decoding {
+    font-size: 30px;
+    margin: 15px 0 15px 5px;
+}
+
+.key {
+    margin: 5px;
+}
+
+.key-info {
+    margin: 15px 5px;
+    font-size: 18px;
+
+}
+
+.encode-key-value {
+    color: red;
+}
+
+.key-loading , .loading-ani {
+    border: 2px solid #000;
+    border-radius: 50%;
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
+    width: 12px;
+    height: 12px;
+    animation: spin 2s linear infinite;
+    display: inline-block;
+    position: relative;
+    top: 4px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.fa-copy, #encode-output-copy {
+    margin-left: 5px;
+    cursor: pointer;
+    color: #fff;
+    transition: 0.7s;
+}
+
+.fa-copy:hover, #encode-output-copy:hover {
+    color: #0000ff;
+}
+
+.key-input {
+    background-color: #000;
+    border: none;
+    outline: none;
+    color: blue;
+    padding: 5px 10px;
+    font-size: 18px;
+    width: auto;
+}
+
+.decode-key-info {
+    color: red;
+}
+
+.encode-input , .decode-input {
+    display: block;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 6px;
+    border-color: blue;
+    outline: none;
+    background-color: #333;
+    color: white;
+    font-size: 18px;
+    height: 25px;
+    min-width: 50%;
+    max-width: 96%;
+    min-height: 25px;
+    max-height: 300px;
+    white-space: nowrap;
+}
+
+.encode-btn , .decode-btn, .key-gen-btn {
+    padding: 5px 10px;
+    margin: 5px;
+    display: inline-block;
+    border-radius: 6px;
+    border-color: blue;
+    outline: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.encode-btn:hover , .decode-btn:hover , .key-gen-btn:hover {
+    border-color: #fff;
+    background-color: #000;
+    color: blue;
+    transition: 0.8s;
+}
+
+.encode-output , .decode-output {
+    padding: 10px 15px;
+    margin: 5px;
+    border: 1px solid blue;
+    border-radius: 6px;
+    min-width: 96%;
+    background-color: #333;
+    color: white;
+    display: none;
+    text-align: justify;
+    position: relative;
+    overflow: auto;
+    white-space: nowrap;
+}
+
+#encode-output-copy {
+    position: relative;
+    display: block;
+    left: 98%;;
+    top: 0px;
+}
