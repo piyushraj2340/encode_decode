@@ -112,7 +112,7 @@ function encode() {
             j = 0;
         }
  
-        finalAsciiEncodeValue[i] = Math.round((encodeAsciiValue[l] * keyAsciiValue[j]) / keyAsciiValue[keyArrayLength - j - 1]);
+        finalAsciiEncodeValue[i] = Math.abs((encodeAsciiValue[l] + keyAsciiValue[j]) - keyAsciiValue[keyArrayLength - j - 1]);
         j++;
 
 
@@ -123,7 +123,7 @@ function encode() {
         }
         else if(finalAsciiEncodeValue[i] > 126) {
             for(grtCount = 1; true ; grtCount++) {
-                _2ndLogicTest =  (grtCount * keyAsciiValue[4]);
+                _2ndLogicTest =  (grtCount * (keyAsciiValue[4] - 25));
                 checkRange = finalAsciiEncodeValue[i] - _2ndLogicTest;
 
                 if(checkRange >= 33 && checkRange <= 126) {
@@ -137,14 +137,14 @@ function encode() {
                     break;
                 }
                 else {
-                    console.log("2nd logic not working....");
+                    //console.log("2nd logic not working....");
                 }
             }
         }
 
         else if(finalAsciiEncodeValue[i] < 33) {
             for(lstCount = 1; true ; lstCount++) {
-                _3rdLogicTest = lstCount * keyAsciiValue[4];
+                _3rdLogicTest = lstCount * (keyAsciiValue[4] - 25);
                 checkRange = finalAsciiEncodeValue[i] + _3rdLogicTest;
 
                 if(checkRange >= 33 && checkRange <= 126) {
@@ -158,14 +158,14 @@ function encode() {
                     break;
                 }
                 else {
-                    console.log("3rd logic not working....");
+                    //console.log("3rd logic not working....");
                 }
             }
         }
 
         else {
             // no code
-            console.log("not working..." + finalAsciiEncodeValue[i]);
+            //console.log("not working..." + finalAsciiEncodeValue[i]);
             break;
         } 
 
@@ -235,15 +235,15 @@ function decode() {
 
     for(i =0; i < decodeInputLength; i++) {
         decodeValue[i] = decodeInput.value[i];
-        console.log(decodeValue);
+        //console.log(decodeValue);
     }
     for(i = 0; i < decodeInputLength; i++) {
         decodeAciiValue[i] = decodeValue[i].charCodeAt();
-        console.log(decodeAciiValue);
+        // console.log(decodeAciiValue);
     }
     for(i = 0; i < keyArrayLength; i++) {
         decodeKeyAsciiValue[i] = KeyInput.value[i].charCodeAt();
-        console.log(decodeKeyAsciiValue);
+        //console.log(decodeKeyAsciiValue);
     }
 
 
@@ -258,13 +258,13 @@ function decode() {
                 }
             }
 
-            decodeAciiValue[i] = decodeAciiValue[i] + (logic * decodeKeyAsciiValue[4]);
+            decodeAciiValue[i] = decodeAciiValue[i] + (logic * (decodeKeyAsciiValue[4] - 25));
 
             if(j >= keyArrayLength) {
                 j = 0;
             }
 
-            finalAsciiDecodeValue[l] = Math.round((decodeAciiValue[i] * decodeKeyAsciiValue[keyArrayLength - j - 1]) / decodeKeyAsciiValue[j]);
+            finalAsciiDecodeValue[l] = Math.abs((decodeAciiValue[i] - decodeKeyAsciiValue[j]) + decodeKeyAsciiValue[keyArrayLength - j - 1]);
             j++;
 
             finalDecodeOut[l] = String.fromCharCode(finalAsciiDecodeValue[l]);
@@ -281,13 +281,13 @@ function decode() {
                 }
             }
 
-            decodeAciiValue[i] = decodeAciiValue[i] - (logic * decodeKeyAsciiValue[4]);
+            decodeAciiValue[i] = decodeAciiValue[i] - (logic * (decodeKeyAsciiValue[4] - 25));
 
             if(j >= keyArrayLength) {
                 j = 0;
             }
 
-            finalAsciiDecodeValue[l] = Math.round((decodeAciiValue[i] * decodeKeyAsciiValue[keyArrayLength - j - 1]) / decodeKeyAsciiValue[j]);
+            finalAsciiDecodeValue[l] = Math.abs((decodeAciiValue[i] - decodeKeyAsciiValue[j]) + decodeKeyAsciiValue[keyArrayLength - j - 1]);
             j++;
 
             finalDecodeOut[l] = String.fromCharCode(finalAsciiDecodeValue[l]);
@@ -298,7 +298,7 @@ function decode() {
                 j = 0;
             }
     
-            finalAsciiDecodeValue[l] = Math.round((decodeAciiValue[i] * decodeKeyAsciiValue[keyArrayLength - j - 1]) / decodeKeyAsciiValue[j]);
+            finalAsciiDecodeValue[l] = Math.abs((decodeAciiValue[i] - decodeKeyAsciiValue[j]) + decodeKeyAsciiValue[keyArrayLength - j - 1]);
             j++;
 
             finalDecodeOut[l] = String.fromCharCode(finalAsciiDecodeValue[l]);
@@ -324,11 +324,10 @@ function decode() {
         }
         else {
             decodeAni.classList.remove("loading-ani");
-            decoding.innerHTML = "Decoding...";
         }
     }
 
-    console.log("finalAciiDecodeValue : " + finalAsciiDecodeValue);
+    console.log(finalDecodeOut);
 
     decodeOutputAni();
     
