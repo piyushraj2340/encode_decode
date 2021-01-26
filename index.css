@@ -94,6 +94,26 @@ body {
     white-space: nowrap;
 }
 
+.encode-input::-webkit-scrollbar , .decode-input::-webkit-scrollbar , .encode-output::-webkit-scrollbar , .decode-output::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.encode-input::-webkit-scrollbar-track , .decode-input::-webkit-scrollbar-track , .encode-output::-webkit-scrollbar-track , .decode-output::-webkit-scrollbar-track {
+    background-color: #000;
+    border-radius: 60px 150px 60px 150px;
+}
+ 
+.encode-input::-webkit-scrollbar-thumb , .decode-input::-webkit-scrollbar-thumb, .encode-output::-webkit-scrollbar-thumb  , .decode-output::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 60px 150px 60px 150px;
+}
+
+.encode-input::-webkit-scrollbar-thumb:hover , .decode-input::-webkit-scrollbar-thumb:hover , .encode-output::-webkit-scrollbar-thumb:hover , .decode-output::-webkit-scrollbar-thumb:hover {
+    background-color: blue;
+}
+
+
 .encode-btn , .decode-btn, .key-gen-btn {
     padding: 5px 10px;
     margin: 5px;
@@ -134,4 +154,10 @@ body {
     display: block;
     left: 98%;;
     top: 0px;
+}
+
+@media screen and (max-width: 700px) {
+    .encode, .decode {
+        min-width: 95%;
+    }
 }
