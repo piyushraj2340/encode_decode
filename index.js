@@ -184,13 +184,18 @@ function encode() {
             encodeOutput.innerHTML += finalEncodeOut[count];
             count++;
             encodeAni.classList.add("loading-ani");
+            encodeOutputCopy.classList.add("fas");
+            encodeOutputCopy.classList.add("fa-copy");
             setTimeout(encodeOutputAni, 10);
         }
         else {
-            encodeOutputCopy.classList.add("fas");
-            encodeOutputCopy.classList.add("fa-copy");
             encodeAni.classList.remove("loading-ani");
-            elem[1].addEventListener("click", copyEncodeOutput);
+            if(keyValue.innerHTML == "none") {
+                //no code
+            }
+            else {
+                elem[1].addEventListener("click", copyEncodeOutput);
+            }
         }
     }
     encodeOutputAni();

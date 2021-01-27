@@ -24,7 +24,7 @@ body {
 }
 
 .key-info {
-    margin: 15px 5px;
+    margin: 15px 10px;
     font-size: 18px;
 
 }
@@ -160,4 +160,23 @@ body {
     .encode, .decode {
         min-width: 95%;
     }
+
+    .encode-input::-webkit-scrollbar , .decode-input::-webkit-scrollbar , .encode-output::-webkit-scrollbar , .decode-output::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+
+    #encode-output-copy {
+        left: 90%;
+    }
+
+    .encode-output, .decode-output {
+        min-width: 87%;
+    }
+
+    .key-gen-btn {
+        display: block;
+        margin-left: -5px;
+    }
+    
 }
